@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root {
+  min-height: 100vh;
+  width: 100%;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.appContainer {
+  //background: `url(${Background}) no-repeat center center/cover fixed`;
+  height: 100vh;
+}

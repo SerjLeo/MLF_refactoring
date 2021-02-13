@@ -26,7 +26,7 @@ import {Route, Switch} from 'react-router-dom';
 // import PrivateRoute from '../routes/PrivateRoute'
 // import {connect} from 'react-redux'
 import {CssBaseline} from '@material-ui/core';
-import PageLayout from "./layouts/PageLayout";
+import AppLayout from "./layouts/AppLayout";
 import Welcome from './pages/Welcome/index'
 
 // import Background from '../../public/images/background.jpg';
@@ -42,17 +42,15 @@ const App = () => {
   //   loadUser();
   // },[loadUser]);
 
-  // const styles = useStyles();
-
   return (
     <>
       <CssBaseline/>
       <div className="appContainer">
-        <PageLayout>
+        <AppLayout>
           <Switch>
             <Route exact path='/' component={Welcome}/>
           </Switch>
-        </PageLayout>
+        </AppLayout>
         {/*<Header/>*/}
         {/*<SimpleBar style={{maxHeight: '100vh'}}>*/}
         {/*  <Switch>*/}

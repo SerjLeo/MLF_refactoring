@@ -7,10 +7,18 @@
 }
 
 .menu_item {
-  margin-right: 10px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  padding: 5px 7px;
+}
+
+.menu_item__icon {
+  stroke: #FFFFFF;
+  fill: #FFFFFF;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
 }
 
 .left_panel {

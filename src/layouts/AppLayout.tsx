@@ -2,6 +2,9 @@ import React, {ReactNode} from 'react'
 import {AppBar, Grid, Toolbar, Typography} from "@material-ui/core";
 import styles from './styles/pageLayout.module.scss'
 import {Link} from "react-router-dom";
+import {ReactComponent as Login} from '../assets/svg/Login.svg'
+import {ReactComponent as Person} from '../assets/svg/Person.svg'
+import {ReactComponent as Logout} from '../assets/svg/Logout.svg'
 
 type PageLayoutProps = {
   children: ReactNode
@@ -9,7 +12,7 @@ type PageLayoutProps = {
   loading?: boolean
 }
 
-const PageLayout = ({children, isAuthenticated = false, loading = false}: PageLayoutProps) => {
+const AppLayout = ({children, isAuthenticated = false, loading = false}: PageLayoutProps) => {
 
   const logout = () => {
     console.log('logout')
@@ -20,14 +23,10 @@ const PageLayout = ({children, isAuthenticated = false, loading = false}: PageLa
       <div className={styles.menu_item}>
         {/*<LangChange selectedLanguage={language} onLangChange={handleLangChange}/>*/}
       </div>
-      {/*<CustomLink className={classes.menuItem} to='/' onClick={() => {logout()}}>*/}
       <Link className={styles.menu_item} onClick={() => logout()} to="/login">
-        <img src={'@/assets/Login.svg'} alt=""/>
-        Logout
+        <Logout className={styles.menu_item__icon}/>
+        <div className={styles.menu_item__text}>Logout</div>
       </Link>
-      {/*  <LogoutIcon/>{' '}*/}
-      {/*  <div className={classes.menuItemText}>{strings['Header'].logout}</div>*/}
-      {/*</CustomLink>*/}
     </>
   );
 
@@ -37,12 +36,12 @@ const PageLayout = ({children, isAuthenticated = false, loading = false}: PageLa
       {/*  <LangChange selectedLanguage={language} onLangChange={handleLangChange}/>*/}
       </div>
       <Link className={styles.menu_item} to='/register'>
-      {/*  <PersonIcon/>{' '}*/}
-      {/*  <div className={classes.menuItemText}>{strings['Header'].register}</div>*/}
+        <Person className={styles.menu_item__icon}/>
+        <div className={styles.menu_item__text}>Register</div>
       </Link>
       <Link className={styles.menu_item} to='/login'>
-        <img src={'@/assets/Login.svg'} alt=""/>
-        <div className={styles.menu_item__text}>Logout</div>
+        <Login className={styles.menu_item__icon}/>
+        <div className={styles.menu_item__text}>Login</div>
       </Link>
     </>
   );
@@ -71,4 +70,4 @@ const PageLayout = ({children, isAuthenticated = false, loading = false}: PageLa
   )
 }
 
-export default PageLayout
+export default AppLayout

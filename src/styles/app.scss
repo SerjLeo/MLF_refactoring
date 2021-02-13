@@ -8,11 +8,17 @@ body, html, #root {
   width: 100%;
   display: block;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   &:visited {
     color: inherit;
@@ -22,4 +28,10 @@ a {
 .appContainer {
   //background: `url(${Background}) no-repeat center center/cover fixed`;
   height: 100vh;
+}
+
+.btn {
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
 }

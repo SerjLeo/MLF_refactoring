@@ -45,6 +45,10 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/react-router-dom": "^5.1.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6"
   }
 }

@@ -4,7 +4,7 @@ import styles from './styles/welcome.module.scss'
 // import {connect} from 'react-redux';
 // import {compose} from 'redux'
 
-import {Button, Grid, Typography} from '@material-ui/core';
+import {Button, Grid} from '@material-ui/core';
 // import WithTranslation from '../translation/withTranslationHOC'
 // import PageLayout from '../layout/PageLayout'
 
@@ -24,10 +24,7 @@ const Welcome = ({isAuthenticated = false}: WelcomeProps) => {
           <div className={styles.image}> </div>
         </Grid>
         <Grid item lg={4} className={styles.grid_item}>
-          <Typography variant="h1" className={styles.head_title}>
-            {/*{strings.welcomeText}*/}
-            Welcome here
-          </Typography>
+          <h1 className={styles.head_title}>Welcome Here</h1>
           <div>
             <Link to={"/login"}>
               <Button variant="contained" style={{margin: 10}} color="primary" disableElevation>Login</Button>

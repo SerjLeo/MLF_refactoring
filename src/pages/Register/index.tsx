@@ -1,10 +1,9 @@
 import React, {FormEvent, useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import {Button, FormControl, TextField} from "@material-ui/core";
+import styles from './styles/register.module.scss'
 // import {connect} from 'react-redux';
 // import {setAlert, register} from '../../actions';
-// import Form from '../helpers/Form'
-// import PageLayout from '../layout/PageLayout'
 // {setAlert, register, isAuthenticated}
 
 type RegisterProps = {
@@ -40,13 +39,18 @@ const Register = ({isAuthenticated}: RegisterProps) => {
   }
 
   return (
-    <FormControl onSubmit={onSubmit}>
-      <TextField label="Name" name="name" onChange={onChange}/>
-      <TextField label="Email" type="email" name="email" onChange={onChange}/>
-      <TextField label="Password" type="password" name="password" onChange={onChange}/>
-      <TextField label="Repeat password" type="password" name="repeat_password" onChange={onChange}/>
-      <Button>Register</Button>
-    </FormControl>
+    <div className={styles.register__container}>
+      <div className={styles.register__form}>
+        <div className={styles.register__form_name}>Register</div>
+        <FormControl onSubmit={onSubmit} className={styles.register__form_wrap}>
+          <TextField required variant="outlined" label="Name" name="name" onChange={onChange} className={styles.register__input}/>
+          <TextField required variant="outlined" label="Email" type="email" name="email" onChange={onChange} className={styles.register__input}/>
+          <TextField required variant="outlined" label="Password" type="password" name="password" onChange={onChange} className={styles.register__input}/>
+          <TextField required variant="outlined" label="Repeat password" type="password" name="repeat_password" onChange={onChange} className={styles.register__input}/>
+          <Button>Register</Button>
+        </FormControl>
+      </div>
+    </div>
   )
 }
 

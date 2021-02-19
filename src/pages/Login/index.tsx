@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {FormEvent, useState} from 'react';
 import {Redirect} from 'react-router-dom';
+import styles from "../Register/styles/register.module.scss";
+import {Button, FormControl, TextField} from "@material-ui/core";
 
 // import {login} from '../../actions';
 // import PropTypes from 'prop-types';
@@ -8,11 +10,10 @@ import {Redirect} from 'react-router-dom';
 
 
 type LoginPageProps = {
-  login: string
   isAuthenticated: boolean
 }
 
-const Login = ({login, isAuthenticated}: LoginPageProps) => {
+const Login = ({isAuthenticated}: LoginPageProps) => {
 
   const [loginForm, setLoginForm] = useState({
     email: '',
@@ -21,33 +22,18 @@ const Login = ({login, isAuthenticated}: LoginPageProps) => {
 
   const {email, password} = loginForm;
 
-  const fields = [
-    {
-      name: 'email',
-      type: 'textInput',
-      inputType: 'email',
-      value: email
-    },
-    {
-      name: 'password',
-      type: 'textInput',
-      inputType: 'password',
-      value: password
-    }
-  ]
-
-  const onChange = (e: InputEvent ) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
     if (!e.target) return
     setLoginForm({
       ...loginForm,
-      // [e.target.name]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  // const onSubmit = async e => {
-  //   e.preventDefault();
-  //   login({email,password});
-  // }
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    // login({email,password});
+  }
 
   //Redirect if logged in
   if(isAuthenticated) {
@@ -55,16 +41,15 @@ const Login = ({login, isAuthenticated}: LoginPageProps) => {
   }
 
   return (
-    // <Form
-    //   onSubmit={onSubmit}
-    //   onChange={onChange}
-    //   type='login'
-    //   redirectTo='/register'
-    //   fields={fields}
-    //   direction='column'
-    // />
-    <div>
-      Login Form Here
+    <div className={styles.register__container}>
+      <div className={styles.register__form}>
+        <div className={styles.register__form_name}>Login</div>
+        <FormControl onSubmit={onSubmit} className={styles.register__form_wrap}>
+          <TextField required variant="outlined" label="Email" type="email" name="email" onChange={onChange} className={styles.register__input}/>
+          <TextField required variant="outlined" label="Password" type="password" name="password" onChange={onChange} className={styles.register__input}/>
+          <Button>Login</Button>
+        </FormControl>
+      </div>
     </div>
   )
 }

@@ -28,6 +28,8 @@ import {Route, Switch} from 'react-router-dom';
 import {CssBaseline} from '@material-ui/core';
 import AppLayout from "./layouts/AppLayout";
 import Welcome from './pages/Welcome/index'
+import Login from './pages/Login/index'
+import Register from './pages/Register/index'
 
 // import Background from '../../public/images/background.jpg';
 // import Page404 from "../Errors/Page404";
@@ -49,15 +51,13 @@ const App = () => {
         <AppLayout>
           <Switch>
             <Route exact path='/' component={Welcome}/>
+            <Route exact path='/register' component={Register}/>
+            <Route exact path='/login' component={Login}/>
           </Switch>
         </AppLayout>
-        {/*<Header/>*/}
-        {/*<SimpleBar style={{maxHeight: '100vh'}}>*/}
-        {/*  <Switch>*/}
         {/*    <Route exact path='/' component={LandingPage}/>*/}
         {/*    <Route exact path='/confirm/:userID'  component={Confirm}/>*/}
-        {/*    <Route exact path='/register' component={Register}/>*/}
-        {/*    <Route exact path='/login' component={Login}/>*/}
+
         {/*    <PrivateRoute exact path='/dashboard' component={Dashboard}/>*/}
         {/*    <PrivateRoute exact path='/transactions' component={AllTransactions}/>*/}
         {/*    <PrivateRoute exact path='/incomes' component={IncomeCatalog}/>*/}
@@ -69,7 +69,6 @@ const App = () => {
         {/*    <PrivateRoute exact path='/analytics/incomes' component={IncomesAnalyticsPage}/>*/}
         {/*    <PrivateRoute exact path='/analytics/types' component={TypeAnalyticsPage}/>*/}
         {/*    <Route component={Page404} />*/}
-        {/*  </Switch>*/}
         {/*  <Footer/>*/}
         {/*  <Alert/>*/}
         {/*</SimpleBar>*/}
